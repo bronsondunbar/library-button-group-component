@@ -2,19 +2,6 @@ import React, { Component, Fragment } from 'react'
 
 export default class ButtonGroupOptions extends Component {
 
-	componentDidUpdate() {
-		const { ActiveComponent } = this.props
-		
-		if (ActiveComponent.group != undefined) {
-			let componentGroup = ActiveComponent.group.toLowerCase()
-			let componentName = ActiveComponent.name.toLowerCase()
-
-			let pageURL = "/library/" + componentGroup + "/" + componentName
-			
-			window.history.pushState("", "", pageURL)
-		}
-	}
-
 	showOptions (event) {
 		var elems = document.querySelectorAll(".dropdown-menu");
 
@@ -54,21 +41,12 @@ export default class ButtonGroupOptions extends Component {
 	}
 
   render() {
-  	const { ActiveComponent, dispatch } = this.props
-
-  	let currentURL = window.location.href
-  	let active = currentURL.search(ActiveComponent.group)
-
-  	console.log(active)
-
     return (
     	<div className="btn-group" role="group">
     		{!this.props.buttonGroupOptions ?
     			<button
 		    		type="button"
-		    		className={this.props.buttonGroup.name.toLowerCase() == ActiveComponent.group
-		    							? 'btn btn-default active'
-		    							: 'btn btn-default'}
+		    		className="btn btn-default"
 		    		key={this.props.buttonGroup.group}
 		    		onClick={!this.props.handlebuttonGroupOptionClick ? null  : (event) => this.props.handlebuttonGroupOptionClick(event)} >
 		    		{this.props.buttonGroup.name}
@@ -76,9 +54,7 @@ export default class ButtonGroupOptions extends Component {
 	    	: <Fragment>
 		    		<button
 			    		type="button"
-			    		className={this.props.buttonGroup.name.toLowerCase() == ActiveComponent.group
-			    							? 'btn btn-default dropdown-toggle active'
-			    							: 'btn btn-default dropdown-toggle'}
+			    		className="btn btn-default dropdown-toggle"
 			    		onMouseOver={this.showOptions.bind(this)}
 			    		key={this.props.buttonGroup.group} >
 			    		{this.props.buttonGroup.name}
