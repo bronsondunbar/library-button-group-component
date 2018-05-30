@@ -2,6 +2,8 @@ import React, { Fragment } from 'react'
 
 import ButtonGroupOptions from './buttonGroupOptionsContainer'
 
+import './style.css'
+
 const ButtonGroupComponent = ({ buttonGroupData, handlebuttonGroupOptionClick }) => {
 
   let buttonGroup = buttonGroupData.map((buttonGroups, index) => {
