@@ -7191,7 +7191,6 @@ a.text-dark:hover, a.text-dark:focus {
 /* Dropdowns */
 .btn-group .btn-default {
   background: rgba(38, 38, 38, 0.8);
-  border: 1px solid #ffffff;
   color: #ffffff;
   min-width: 1px;
   transition: all 0.3s;
@@ -7204,11 +7203,8 @@ a.text-dark:hover, a.text-dark:focus {
 .btn-group .btn-group .dropdown-toggle {
   min-width: 1px !important; }
 
-.dropdown-toggle {
-  min-width: 10rem !important; }
-
 .dropdown-menu {
-  background: rgba(38, 38, 38, 0.8);
+  background: #262626;
   width: 100%;
   border: none; }
   .dropdown-menu .dropdown-item {

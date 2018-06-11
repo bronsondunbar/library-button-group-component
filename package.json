@@ -1,6 +1,6 @@
 {
   "name": "library-button-group-component",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Button group component for React",
   "main": "./lib/ButtonGroup.js",
   "license": "MIT",
@@ -27,5 +27,8 @@
     "style-loader": "^0.21.0",
     "webpack": "^4.6.0",
     "webpack-cli": "^2.0.14"
+  },
+  "dependencies": {
+    "react-router-dom": "^4.3.1"
   }
 }

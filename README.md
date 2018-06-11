@@ -23,130 +23,119 @@ Create an array of objects with the keys being name and options
 
 ```
 
-const data = [
+const buttonGroupData = [
   {
-    name: 'Item one',
-    options: [
+    name: "Item 1",
+    route: "/",
+    items: [
       {
-        name: 'Sub item 1'
-      },
-      {
-        name: 'Sub item 2'
-      },
-      {
-        name: 'Sub item 3'
+        name: "Sub item 1",
+        route: "/"
       }
     ]
   },
   {
-    name: 'Item two',
-    options: [
+    name: "Item 2",
+    route: "/blah"
+  },
+  {
+    name: "Item 3",
+    route: "/",
+    items: [
       {
-        name: 'Sub item 1'
-      },
-      {
-        name: 'Sub item 2'
-      },
-      {
-        name: 'Sub item 3'
+        name: "Sub item 3",
+        route: "/"
       }
     ]
   },
-  {
-    name: 'Item three',
-    options: [
-      {
-        name: 'Sub item 1'
-      },
-      {
-        name: 'Sub item 2'
-      },
-      {
-        name: 'Sub item 3'
-      }
-    ]
-  }
 ]
 
 ```
 
-Create the function that will handle mouse click events
+Create the function that will show the options
 
 ```
 
-handleClick(event) {
-  handlebuttonGroupOptionClick (event) {
-    event.preventDefault();
-    console.log(event.target.innerText + " has been clicked!")
+showButtonGroupOptions (event) {
+  var elems = document.querySelectorAll(".dropdown-menu");
+
+  [].forEach.call(elems, function(el) {
+      el.classList.remove("show")
+  })
+
+  let hasOptions = event.target.nextSibling.childNodes.length
+
+  if (hasOptions > 0) {
+    event.target.nextSibling.classList.add("show")
+  }
+}
+
+
+```
+
+Create the function that will hide the options
+
+```
+
+hideButtonGroupOptions (event) {
+  let findElement = event.target.className
+
+  if (findElement == 'dropdown-menu show') {
+    event.target.classList.remove("show")
+  } else if (findElement == 'dropdown-item') {
+    event.target.parentElement.classList.remove("show")
   }
 }
 
 ```
+
 
 Render the component with the object array we created as well as any other props that are needed
 
 ```
 
 render () {
-  const data = [
+  const buttonGroupData = [
     {
-      name: 'Item one',
-      options: [
+      name: "Item 1",
+      route: "/",
+      items: [
         {
-          name: 'Sub item 1'
-        },
-        {
-          name: 'Sub item 2'
-        },
-        {
-          name: 'Sub item 3'
+          name: "Sub item 1",
+          route: "/"
         }
       ]
     },
     {
-      name: 'Item two',
-      options: [
+      name: "Item 2",
+      route: "/blah"
+    },
+    {
+      name: "Item 3",
+      route: "/",
+      items: [
         {
-          name: 'Sub item 1'
-        },
-        {
-          name: 'Sub item 2'
-        },
-        {
-          name: 'Sub item 3'
+          name: "Sub item 3",
+          route: "/"
         }
       ]
     },
-    {
-      name: 'Item three',
-      options: [
-        {
-          name: 'Sub item 1'
-        },
-        {
-          name: 'Sub item 2'
-        },
-        {
-          name: 'Sub item 3'
-        }
-      ]
-    }
   ]
 
-  render () {
-    return (
-      <div className="btn-group" role="group">
-        <ButtonGroupComponent
-          buttonGroupData={data}
-          handlebuttonGroupOptionClick={this.handlebuttonGroupOptionClick.bind(this)} />
-      </div>
-    )
-  }
+  return (
+    <div className="btn-group" role="group">
+      <ButtonGroupComponent
+        buttonGroupData={buttonGroupData}
+        showButtonGroupOptions={this.showButtonGroupOptions.bind(this)} 
+        hideButtonGroupOptions={this.hideButtonGroupOptions.bind(this)} />
+    </div>
+  )
 }
 
 ```
 
-| Prop                         | Values                                |
-| :--------------------------- | :------------------------------------ |
-| buttonGroupData              | Object                                |
-| handlebuttonGroupOptionClick | handlebuttonGroupOptionClick function |
+| Prop                   | Values                          |
+| :--------------------- | :------------------------------ |
+| buttonGroupData        | Object                          |
+| showButtonGroupOptions | showButtonGroupOptions function |
+| hideButtonGroupOptions | hideButtonGroupOptions function |
