@@ -137,5 +137,6 @@ render () {
 | Prop                   | Values                          |
 | :--------------------- | :------------------------------ |
 | buttonGroupData        | Object                          |
+| buttonGroupTheme       | dark or light                   |
 | showButtonGroupOptions | showButtonGroupOptions function |
 | hideButtonGroupOptions | hideButtonGroupOptions function |

@@ -1,14 +1,22 @@
 import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom'
+import classNames from 'classnames'
 
 import './style.css';
 
-const ButtonGroupComponent = ({ buttonGroupData, showButtonGroupOptions, hideButtonGroupOptions }) => {
+const ButtonGroupComponent = ({ buttonGroupData, buttonGroupTheme, showButtonGroupOptions, hideButtonGroupOptions }) => {
+
+  let buttonGroupClass = classNames({
+    'btn-group': true,
+    'dropdown-bg-light': buttonGroupTheme == 'light' || buttonGroupTheme == null,
+    'dropdown-bg-dark': buttonGroupTheme == 'dark'
+  })
+
   return (
     <Fragment>
         {buttonGroupData.map((data, index) => {
           return (
-            <div className="btn-group" role="group">
+            <div className={buttonGroupClass} role="group">
               {data.items != undefined
                 ? <a
                     key={index}
