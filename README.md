@@ -126,6 +126,7 @@ render () {
     <div className="btn-group" role="group">
       <ButtonGroupComponent
         buttonGroupData={buttonGroupData}
+        buttonGroupTheme="dark"
         showButtonGroupOptions={this.showButtonGroupOptions.bind(this)} 
         hideButtonGroupOptions={this.hideButtonGroupOptions.bind(this)} />
     </div>
